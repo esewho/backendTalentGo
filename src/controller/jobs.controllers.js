@@ -118,5 +118,16 @@ class JobsController {
 			console.log({ error: error.message })
 		}
 	}
+
+	static async deleteJob(id) {
+		try {
+			const deleted = await Job.destroy({
+				where: { id },
+			})
+			if (deleted === 0) return "job not found."
+
+			return { message: "Job removed sucessfully!" }
+		} catch (error) {}
+	}
 }
 module.exports = JobsController

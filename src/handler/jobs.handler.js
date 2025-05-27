@@ -106,6 +106,17 @@ class JobsHandler {
 			return res.status(500).json({ error: error.message })
 		}
 	}
+
+	static async deleteJobHandler(req, res) {
+		const { id } = req.params
+		try {
+			const deletedJobs = await JobsController.deleteJob(id)
+
+			return res.status(200).json(deletedJobs)
+		} catch (error) {
+			return res.status(500).json({ error: error.message })
+		}
+	}
 }
 
 module.exports = JobsHandler

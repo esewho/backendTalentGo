@@ -124,6 +124,7 @@ class JobsController {
 			const deleted = await Job.destroy({
 				where: { id },
 			})
+			console.log(deleted, "aaaa")
 			if (deleted === 0) return "job not found."
 
 			return { message: "Job removed sucessfully!" }

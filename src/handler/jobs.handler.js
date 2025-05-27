@@ -108,9 +108,10 @@ class JobsHandler {
 	}
 
 	static async deleteJobHandler(req, res) {
-		const { id } = req.params
+		const { idJob } = req.params
+		console.log(idJob, "awikdjnawjndjawndpawn")
 		try {
-			const deletedJobs = await JobsController.deleteJob(id)
+			const deletedJobs = await JobsController.deleteJob(idJob)
 
 			return res.status(200).json(deletedJobs)
 		} catch (error) {
